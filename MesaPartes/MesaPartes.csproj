@@ -381,6 +381,7 @@
     <Content Include="Views\ImprimirCss.cshtml" />
     <Content Include="Views\Home\ListarExpedientes.cshtml" />
     <Content Include="Views\Home\AnularExpediente.cshtml" />
+    <Content Include="Views\Home\Ejemplo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Gnostice.PDFOne.PDFDocument.licx" />
