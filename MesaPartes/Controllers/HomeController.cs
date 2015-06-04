@@ -14,9 +14,6 @@ using System.Web.Security;
 using Rotativa;
 using PagedList;
 
-
-
-
 namespace MesaPartes.Controllers
 {
     public class HomeController : Controller
