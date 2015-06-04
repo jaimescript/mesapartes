@@ -1,0 +1,118 @@
+﻿@model PagedList.IPagedList<MesaPartes.Models.Expedientes>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/TablaExpedientes.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Lista de Expedientes";    
+}
+
+<h2>Lista de Expedientes:</h2>
+
+@using (Html.BeginForm("ListarExpedientes", "Home", FormMethod.Get))
+{
+    <p>
+        Busqueda: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Buscar" />
+    </p>
+}
+<div class="datagrid">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Nro
+                </th>
+                <th>
+                    Codigo de Matricula
+                </th>
+                <th>
+                    Nro Salida
+                </th>
+                <th>                         
+                     @Html.ActionLink("Fecha Expedicion", "ListarExpedientes", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    Programa
+                </th>
+                <th>            
+                    @Html.ActionLink("Nombres", "ListarExpedientes", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>            
+                    Cusuario
+                </th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+    @{int contador = 1;    
+        foreach (var item in Model)
+        {
+            if (contador % 2 > 0)
+            {
+            <tr class="alt">                        
+                <td>
+                    @contador
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cCodLector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cSalida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fec_Expedición)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CIdPrograma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cDatos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cusuario)
+                </td>
+                <td>
+                    @Html.ActionLink("Anular", "AnularExpediente", new { cIdExpediente = item.cIdExpediente, CodLector = item.cCodLector })
+                </td>
+            </tr>
+            }
+            else
+            {
+            <tr>                        
+                <td>
+                    @contador
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cCodLector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cSalida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fec_Expedición)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CIdPrograma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cDatos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cusuario)
+                </td>
+                <td>
+                    @Html.ActionLink("Anular", "AnularExpediente", new { cIdExpediente = item.cIdExpediente, CodLector = item.cCodLector })
+                </td>
+            </tr>
+            }
+
+            contador++;
+        }
+    }
+    </table>
+</div>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("ListarExpedientes",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

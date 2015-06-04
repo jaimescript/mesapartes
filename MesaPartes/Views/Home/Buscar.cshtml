@@ -1,0 +1,56 @@
+﻿@model MesaPartes.Models.AuditoriaConstancias
+
+@{
+    ViewBag.Title = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Buscar", "Home", FormMethod.Post))
+{
+    //this  is for create form tag
+    @Html.AntiForgeryToken()
+    // this is for prevent CSRF attack
+    @Html.ValidationSummary(true)   
+        
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.cIdExpediente)</td>
+            <td>@Html.TextBoxFor(a => a.cIdExpediente)</td>
+            <td>@Html.ValidationMessageFor(a => a.cIdExpediente)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.cCodLector)</td>
+            <td>@Html.TextBoxFor(a => a.cCodLector)</td>
+            <td>@Html.ValidationMessageFor(a => a.cCodLector)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.cCodPapelConstanc)</td>
+            <td>@Html.TextBoxFor(a => a.cCodPapelConstanc)</td>
+            <td>@Html.ValidationMessageFor(a => a.cCodPapelConstanc)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.ReciboPapel)</td>
+            <td>@Html.TextBoxFor(a => a.ReciboPapel)</td>
+            <td>@Html.ValidationMessageFor(a => a.ReciboPapel)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.ReciboSistema)</td>
+            <td>@Html.TextBoxFor(a => a.ReciboSistema)</td>
+            <td>@Html.ValidationMessageFor(a => a.ReciboSistema)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Imprimir" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}

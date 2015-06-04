@@ -1,0 +1,101 @@
+﻿.datagrid table 
+{ 
+    border-collapse: collapse; text-align: left; width: 100%; 
+} 
+.datagrid 
+{
+    font: normal 12px/150% Arial, Helvetica, sans-serif; 
+    background: #fff; overflow: hidden; 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+}
+.datagrid table td, .datagrid table th 
+{ 
+    padding: 3px 0px;
+    text-align: center;
+}
+.datagrid table thead th 
+{
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #040A07), color-stop(1, #010217) );
+    background:-moz-linear-gradient( center top, #040A07 5%, #010217 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#040A07', endColorstr='#010217');
+    background-color:#040A07; 
+    color:#FFFFFF; 
+    font-size: 12px; 
+    font-weight: bold; 
+    border-left: 1px solid #A8A8A1; 
+    text-align: center;
+} 
+.datagrid table thead th:first-child 
+{ 
+    border: none; 
+}
+.datagrid table tbody td 
+{ 
+    color: #001017; border-left: 1px solid #F4EDEF;
+    font-size: 12px;font-weight: normal; 
+    padding: 10px;
+}
+.datagrid table tbody .alt td 
+{ 
+    background: #D9D9D9; color: #000203; 
+}
+.datagrid table tbody td:first-child 
+{ 
+    border-left: none; 
+}
+.datagrid table tbody tr:last-child td 
+{ 
+    border-bottom: none; 
+}
+.datagrid table tfoot td div 
+{ 
+    border-top: 1px solid #040804;background: #E1EEF4;
+} 
+.datagrid table tfoot td 
+{ 
+    padding: 0; font-size: 12px 
+} 
+.datagrid table tfoot td div
+{ 
+    padding: 2px; 
+}
+.datagrid table tfoot td ul 
+{ 
+    margin: 0; padding:0; 
+    list-style: none; 
+    text-align: right; 
+}
+.datagrid table tfoot  li 
+{ 
+    display: inline; 
+}
+.datagrid table tfoot li a 
+{ 
+    text-decoration: none; 
+    display: inline-block;  
+    padding: 2px 8px; 
+    margin: 1px;
+    color: #FFFFFF;
+    border: 2px solid #006699;
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px; 
+    border-radius: 3px; 
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+    background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+    background-color:#006699; 
+}
+.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover 
+{ 
+    text-decoration: none;
+    border-color: #006699; 
+    color: #FFFFFF; 
+    background: none; 
+    background-color:#00557F;
+}
+div.dhtmlx_window_active, div.dhx_modal_cover_dv 
+{ 
+    position: fixed !important; 
+}

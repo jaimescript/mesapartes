@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BIBLIO_UCSMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BIBLIO_UCSMModelStoreContainer">
+          <EntitySet Name="AuditoriaConstancias" EntityType="BIBLIO_UCSMModel.Store.AuditoriaConstancias" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Expedientes" EntityType="BIBLIO_UCSMModel.Store.Expedientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaestroBiblio" EntityType="BIBLIO_UCSMModel.Store.MaestroBiblio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuarios" EntityType="BIBLIO_UCSMModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AuditoriaConstancias">
+          <Key>
+            <PropertyRef Name="cIdExpediente" />
+          </Key>
+          <Property Name="Id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cIdExpediente" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="cCodLector" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="cCodPapelConstanc" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="ReciboPapel" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="ReciboSistema" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Hora_Expediente" Type="time" Nullable="false" />
+          <Property Name="Fec_Expedición" Type="date" Nullable="false" />
+          <Property Name="Control" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Anular" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="cusuario" Type="varchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Expedientes">
+          <Key>
+            <PropertyRef Name="cIdExpediente" />
+          </Key>
+          <Property Name="cIdExpediente" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="cCodLector" Type="varchar" MaxLength="10" />
+          <Property Name="cSalida" Type="int" Nullable="false" />
+          <Property Name="Fec_Expedición" Type="date" Nullable="false" />
+          <Property Name="CIdPrograma" Type="varchar" MaxLength="3" />
+          <Property Name="cDatos" Type="varchar" MaxLength="80" />
+          <Property Name="cusuario" Type="varchar" MaxLength="15" />
+          <Property Name="anular" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MaestroBiblio">
+          <Key>
+            <PropertyRef Name="Cod_barras" />
+          </Key>
+          <Property Name="Id" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_barras" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="codigo" Type="varchar" MaxLength="10" />
+          <Property Name="dni" Type="varchar" MaxLength="8" />
+          <Property Name="datos" Type="varchar" MaxLength="255" />
+          <Property Name="Categoria" Type="varchar" MaxLength="2" />
+          <Property Name="cod_prog" Type="varchar" MaxLength="2" />
+          <Property Name="programa" Type="varchar" MaxLength="255" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha_venc" Type="date" />
+          <Property Name="campo1" Type="varchar" MaxLength="50" />
+          <Property Name="campo2" Type="varchar" MaxLength="50" />
+          <Property Name="campo3" Type="varchar" MaxLength="50" />
+          <Property Name="campo4" Type="varchar" MaxLength="50" />
+          <Property Name="campo5" Type="varchar" MaxLength="50" />
+          <Property Name="campo6" Type="varchar" MaxLength="50" />
+          <Property Name="campo7" Type="varchar" MaxLength="50" />
+          <Property Name="campo8" Type="varchar" MaxLength="50" />
+          <Property Name="campo9" Type="varchar" MaxLength="10" />
+          <Property Name="campo10" Type="varchar" MaxLength="1" />
+          <Property Name="campo11" Type="varchar" MaxLength="50" />
+          <Property Name="campo12" Type="varchar" MaxLength="50" />
+          <Property Name="campo13" Type="varchar" MaxLength="50" />
+          <Property Name="campo14" Type="varchar" MaxLength="50" />
+          <Property Name="tel_fij" Type="varchar" MaxLength="25" />
+          <Property Name="Celular" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="activo" Type="varchar" MaxLength="1" />
+          <Property Name="cybertesis" Type="char" MaxLength="1" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="Tipo_lector" Type="char" MaxLength="4" />
+          <Property Name="biblioteca" Type="varchar" MaxLength="10" />
+          <Property Name="Acceso_Aleph" Type="varchar" MaxLength="1" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="cUsuario" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cUsuario" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="cContraseña" Type="varchar" MaxLength="15" />
+          <Property Name="cCod_usuario" Type="varchar" MaxLength="10" />
+          <Property Name="cdatos" Type="varchar" MaxLength="85" />
+          <Property Name="cIdArea" Type="int" />
+          <Property Name="cIdTipoUsuario" Type="int" />
+          <Property Name="cEstado" Type="varchar" MaxLength="1" />
+          <Property Name="IdTipPerBiblio" Type="varchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BIBLIO_UCSMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BIBLIO_UCSMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuditoriaConstancias" EntityType="BIBLIO_UCSMModel.AuditoriaConstancias" />
+          <EntitySet Name="Expedientes" EntityType="BIBLIO_UCSMModel.Expedientes" />
+          <EntitySet Name="MaestroBiblio" EntityType="BIBLIO_UCSMModel.MaestroBiblio" />
+          <EntitySet Name="Usuarios" EntityType="BIBLIO_UCSMModel.Usuarios" />
+        </EntityContainer>
+        <EntityType Name="AuditoriaConstancias">
+          <Key>
+            <PropertyRef Name="cIdExpediente" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cIdExpediente" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cCodLector" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cCodPapelConstanc" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="ReciboPapel" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ReciboSistema" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Hora_Expediente" Type="Time" Nullable="false" />
+          <Property Name="Fec_Expedición" Type="DateTime" Nullable="false" />
+          <Property Name="Control" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Anular" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Observacion" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="cusuario" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Expedientes">
+          <Key>
+            <PropertyRef Name="cIdExpediente" />
+          </Key>
+          <Property Name="cIdExpediente" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cCodLector" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cSalida" Type="Int32" Nullable="false" />
+          <Property Name="Fec_Expedición" Type="DateTime" Nullable="false" />
+          <Property Name="CIdPrograma" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="cDatos" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="cusuario" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="anular" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MaestroBiblio">
+          <Key>
+            <PropertyRef Name="Cod_barras" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_barras" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="codigo" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="dni" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="datos" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Categoria" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="cod_prog" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="programa" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_venc" Type="DateTime" />
+          <Property Name="campo1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo3" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo4" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo5" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo6" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo7" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo8" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo9" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="campo10" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="campo11" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo12" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo13" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="campo14" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="tel_fij" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Celular" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="activo" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="cybertesis" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="fecha_registro" Type="DateTime" />
+          <Property Name="Tipo_lector" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="biblioteca" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Acceso_Aleph" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="cUsuario" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cUsuario" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="cContraseña" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="cCod_usuario" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cdatos" Type="String" MaxLength="85" Unicode="false" FixedLength="false" />
+          <Property Name="cIdArea" Type="Int32" />
+          <Property Name="cIdTipoUsuario" Type="Int32" />
+          <Property Name="cEstado" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="IdTipPerBiblio" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BIBLIO_UCSMModelStoreContainer" CdmEntityContainer="BIBLIO_UCSMEntities">
+          <EntitySetMapping Name="AuditoriaConstancias">
+            <EntityTypeMapping TypeName="BIBLIO_UCSMModel.AuditoriaConstancias">
+              <MappingFragment StoreEntitySet="AuditoriaConstancias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cIdExpediente" ColumnName="cIdExpediente" />
+                <ScalarProperty Name="cCodLector" ColumnName="cCodLector" />
+                <ScalarProperty Name="cCodPapelConstanc" ColumnName="cCodPapelConstanc" />
+                <ScalarProperty Name="ReciboPapel" ColumnName="ReciboPapel" />
+                <ScalarProperty Name="ReciboSistema" ColumnName="ReciboSistema" />
+                <ScalarProperty Name="Hora_Expediente" ColumnName="Hora_Expediente" />
+                <ScalarProperty Name="Fec_Expedición" ColumnName="Fec_Expedición" />
+                <ScalarProperty Name="Control" ColumnName="Control" />
+                <ScalarProperty Name="Anular" ColumnName="Anular" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="cusuario" ColumnName="cusuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expedientes">
+            <EntityTypeMapping TypeName="BIBLIO_UCSMModel.Expedientes">
+              <MappingFragment StoreEntitySet="Expedientes">
+                <ScalarProperty Name="cIdExpediente" ColumnName="cIdExpediente" />
+                <ScalarProperty Name="cCodLector" ColumnName="cCodLector" />
+                <ScalarProperty Name="cSalida" ColumnName="cSalida" />
+                <ScalarProperty Name="Fec_Expedición" ColumnName="Fec_Expedición" />
+                <ScalarProperty Name="CIdPrograma" ColumnName="CIdPrograma" />
+                <ScalarProperty Name="cDatos" ColumnName="cDatos" />
+                <ScalarProperty Name="cusuario" ColumnName="cusuario" />
+                <ScalarProperty Name="anular" ColumnName="anular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaestroBiblio">
+            <EntityTypeMapping TypeName="BIBLIO_UCSMModel.MaestroBiblio">
+              <MappingFragment StoreEntitySet="MaestroBiblio">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cod_barras" ColumnName="Cod_barras" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="datos" ColumnName="datos" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="cod_prog" ColumnName="cod_prog" />
+                <ScalarProperty Name="programa" ColumnName="programa" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="Fecha_venc" ColumnName="Fecha_venc" />
+                <ScalarProperty Name="campo1" ColumnName="campo1" />
+                <ScalarProperty Name="campo2" ColumnName="campo2" />
+                <ScalarProperty Name="campo3" ColumnName="campo3" />
+                <ScalarProperty Name="campo4" ColumnName="campo4" />
+                <ScalarProperty Name="campo5" ColumnName="campo5" />
+                <ScalarProperty Name="campo6" ColumnName="campo6" />
+                <ScalarProperty Name="campo7" ColumnName="campo7" />
+                <ScalarProperty Name="campo8" ColumnName="campo8" />
+                <ScalarProperty Name="campo9" ColumnName="campo9" />
+                <ScalarProperty Name="campo10" ColumnName="campo10" />
+                <ScalarProperty Name="campo11" ColumnName="campo11" />
+                <ScalarProperty Name="campo12" ColumnName="campo12" />
+                <ScalarProperty Name="campo13" ColumnName="campo13" />
+                <ScalarProperty Name="campo14" ColumnName="campo14" />
+                <ScalarProperty Name="tel_fij" ColumnName="tel_fij" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="cybertesis" ColumnName="cybertesis" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="Tipo_lector" ColumnName="Tipo_lector" />
+                <ScalarProperty Name="biblioteca" ColumnName="biblioteca" />
+                <ScalarProperty Name="Acceso_Aleph" ColumnName="Acceso_Aleph" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="BIBLIO_UCSMModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cUsuario" ColumnName="cUsuario" />
+                <ScalarProperty Name="cContraseña" ColumnName="cContraseña" />
+                <ScalarProperty Name="cCod_usuario" ColumnName="cCod_usuario" />
+                <ScalarProperty Name="cdatos" ColumnName="cdatos" />
+                <ScalarProperty Name="cIdArea" ColumnName="cIdArea" />
+                <ScalarProperty Name="cIdTipoUsuario" ColumnName="cIdTipoUsuario" />
+                <ScalarProperty Name="cEstado" ColumnName="cEstado" />
+                <ScalarProperty Name="IdTipPerBiblio" ColumnName="IdTipPerBiblio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BIBLIO_UCSM">
+        <EntityTypeShape EntityType="BIBLIO_UCSMModel.AuditoriaConstancias" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIO_UCSMModel.Expedientes" Width="1.5" PointX="2.75" PointY="0.75" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIO_UCSMModel.MaestroBiblio" Width="1.5" PointX="4.75" PointY="0.75" Height="7.5570279947916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIBLIO_UCSMModel.Usuarios" Width="1.5" PointX="0.75" PointY="5.75" Height="2.7494921874999996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

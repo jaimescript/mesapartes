@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PDF</title>
+</head>
+<body>
+    <itext creationdate="@DateTime.Now.ToString()" producer="RazorPDF">
+    <paragraph style="font-family: Helvetica; font-size: 18; font-style: italic;">
+           <chunk red="255" green="0" blue="0">@ViewBag.Title</chunk>
+    </paragraph>
+    <paragraph>
+        <chunk style="font-family:Times;font-weight:bold;">Fecha Reporte: </chunk>
+        <chunk style="font-family:Times;">@DateTime.Now.ToString("MM/dd/yyyy")</chunk>
+    </paragraph>
+    <paragraph>
+        <chunk style="font-family:Times;font-weight:bold;">Nombre: </chunk>
+        <chunk style="font-family:Times;">@ViewBag.Nombre</chunk>
+    </paragraph>
+    <paragraph>
+        <chunk style="font-family:Times;font-weight:bold;">Apellido: </chunk>
+        <chunk style="font-family:Times;">@ViewBag.Apellido</chunk>
+    </paragraph>
+    <paragraph>
+        <chunk style="font-family:Times;font-weight:bold;">Edad: </chunk>
+        <chunk style="font-family:Times;">@ViewBag.Edad</chunk>
+    </paragraph>
+    <newline />
+    
+    <paragraph style="font-family: Helvetica; font-size: 18; font-style: italic;">
+           <chunk red="255" green="0" blue="0">By @@Chalalo</chunk>
+    </paragraph>
+    </itext>
+</body>
+</html>

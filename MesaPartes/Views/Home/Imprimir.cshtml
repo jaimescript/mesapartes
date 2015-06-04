@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+
+@Html.AntiForgeryToken()
+
+@Html.ValidationSummary(true)    
+
+<table>
+    <tr>
+        <td><img width=100px height="100px" src="~/Images/logo_ucsm.fw.jpg" /></td>
+        <td style="text-align:center"><h1>UNIVERSIDAD CATOLICA DE SANTA MARIA</h1><h4>COORDINACION DE BIBLIOTECAS, HEMEROTECA Y VIDEOTECA</h4></td>
+        <td><img width=100px height="100px" src="~/Images/logo_ucsm.fw.jpg" /></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="height:30px"><div style="height:1px;background:#717171;border-bottom:1px solid #313030;"></div></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="height:150px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align:center"><h1>CONSTANCIA</h1></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span style="color:black;font-weight:bolder">Expediente N°:</span><span>@ViewBag.nroexpediente</span>
+        </td>                    
+        <td>
+            <span style="color:black;font-weight:bolder">Salida N°:</span><span>@ViewBag.nrosalida</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="height:100px">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        <p>
+            El que suscribe, Coordinador de Bibliotecas, Hemeroteca y Videoteca de la
+            Universidad Catolica de Santa Maria
+        </p>
+
+        <p>&nbsp;</p>
+
+        <p>HACE CONSTAR que, el(la) señor(ita):</p>
+        <h3>@ViewBag.alumno</h3>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+        <p>Alumno de la Escuela Profesional de: </p>
+        <h3>@ViewBag.escuela</h3>
+
+        <p>&nbsp;</p>
+
+        <p>
+            No adeuda material bibliografico a las Bibliotecas, Hemeroteca y Videoteca.
+            "Se expide la presente a solicitud del interesado(a)
+        </p>
+
+        <p>&nbsp;</p>
+
+        <p>Valida por @ViewBag.caducidad dias</p>
+
+        <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <table>
+                <tr>
+                    <td style="width:200px">&nbsp;</td>
+                    <td style="width:200px">&nbsp;</td>
+                    <td>
+                        <p>&nbsp;</p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            AREQUIPA,  @ViewBag.fecha
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Universidad Catolica de Santa Maria
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            ..............................................................
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            @ViewBag.coordinador
+                        </p>
+                        <p>Coordinador de Bibliotecas, hemeroteca y Videoteca</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

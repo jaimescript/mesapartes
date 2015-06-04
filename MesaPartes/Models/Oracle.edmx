@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MesaPartes.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MesaPartesStoreContainer">
+          <EntitySet Name="Z36" EntityType="MesaPartes.Store.Z36" store:Type="Tables" store:Schema="CSM50" store:Name="Z36">
+            <DefiningQuery>SELECT 
+      "Z36"."Z36_REC_KEY" AS "Z36_REC_KEY", 
+      "Z36"."Z36_ID" AS "Z36_ID", 
+      "Z36"."Z36_NUMBER" AS "Z36_NUMBER", 
+      "Z36"."Z36_MATERIAL" AS "Z36_MATERIAL", 
+      "Z36"."Z36_SUB_LIBRARY" AS "Z36_SUB_LIBRARY", 
+      "Z36"."Z36_STATUS" AS "Z36_STATUS", 
+      "Z36"."Z36_LOAN_DATE" AS "Z36_LOAN_DATE", 
+      "Z36"."Z36_LOAN_HOUR" AS "Z36_LOAN_HOUR", 
+      "Z36"."Z36_EFFECTIVE_DUE_DATE" AS "Z36_EFFECTIVE_DUE_DATE", 
+      "Z36"."Z36_DUE_DATE" AS "Z36_DUE_DATE", 
+      "Z36"."Z36_DUE_HOUR" AS "Z36_DUE_HOUR", 
+      "Z36"."Z36_RETURNED_DATE" AS "Z36_RETURNED_DATE", 
+      "Z36"."Z36_RETURNED_HOUR" AS "Z36_RETURNED_HOUR", 
+      "Z36"."Z36_ITEM_STATUS" AS "Z36_ITEM_STATUS", 
+      "Z36"."Z36_BOR_STATUS" AS "Z36_BOR_STATUS", 
+      "Z36"."Z36_LETTER_NUMBER" AS "Z36_LETTER_NUMBER", 
+      "Z36"."Z36_LETTER_DATE" AS "Z36_LETTER_DATE", 
+      "Z36"."Z36_NO_RENEWAL" AS "Z36_NO_RENEWAL", 
+      "Z36"."Z36_NOTE_1" AS "Z36_NOTE_1", 
+      "Z36"."Z36_NOTE_2" AS "Z36_NOTE_2", 
+      "Z36"."Z36_LOAN_CATALOGER_NAME" AS "Z36_LOAN_CATALOGER_NAME", 
+      "Z36"."Z36_LOAN_CATALOGER_IP" AS "Z36_LOAN_CATALOGER_IP", 
+      "Z36"."Z36_RETURN_CATALOGER_NAME" AS "Z36_RETURN_CATALOGER_NAME", 
+      "Z36"."Z36_RETURN_CATALOGER_IP" AS "Z36_RETURN_CATALOGER_IP", 
+      "Z36"."Z36_RENEW_CATALOGER_NAME" AS "Z36_RENEW_CATALOGER_NAME", 
+      "Z36"."Z36_RENEW_CATALOGER_IP" AS "Z36_RENEW_CATALOGER_IP", 
+      "Z36"."Z36_RENEW_MODE" AS "Z36_RENEW_MODE", 
+      "Z36"."Z36_BOR_TYPE" AS "Z36_BOR_TYPE", 
+      "Z36"."Z36_NOTE_ALPHA" AS "Z36_NOTE_ALPHA", 
+      "Z36"."Z36_RECALL_DATE" AS "Z36_RECALL_DATE", 
+      "Z36"."Z36_RECALL_DUE_DATE" AS "Z36_RECALL_DUE_DATE", 
+      "Z36"."Z36_LAST_RENEW_DATE" AS "Z36_LAST_RENEW_DATE", 
+      "Z36"."Z36_ORIGINAL_DUE_DATE" AS "Z36_ORIGINAL_DUE_DATE", 
+      "Z36"."Z36_PROCESS_STATUS" AS "Z36_PROCESS_STATUS", 
+      "Z36"."Z36_LOAN_TYPE" AS "Z36_LOAN_TYPE", 
+      "Z36"."Z36_PROXY_ID" AS "Z36_PROXY_ID", 
+      "Z36"."Z36_RECALL_TYPE" AS "Z36_RECALL_TYPE", 
+      "Z36"."Z36_RETURN_LOCATION" AS "Z36_RETURN_LOCATION", 
+      "Z36"."Z36_RETURN_SUB_LOCATION" AS "Z36_RETURN_SUB_LOCATION", 
+      "Z36"."Z36_SOURCE" AS "Z36_SOURCE", 
+      "Z36"."Z36_DELIVERY_TIME" AS "Z36_DELIVERY_TIME", 
+      "Z36"."Z36_TAIL_TIME" AS "Z36_TAIL_TIME", 
+      "Z36"."Z36_UPD_TIME_STAMP" AS "Z36_UPD_TIME_STAMP", 
+      "Z36"."Z36_LOAN_CATALOGER_IP_V6" AS "Z36_LOAN_CATALOGER_IP_V6", 
+      "Z36"."Z36_RETURN_CATALOGER_IP_V6" AS "Z36_RETURN_CATALOGER_IP_V6", 
+      "Z36"."Z36_RENEW_CATALOGER_IP_V6" AS "Z36_RENEW_CATALOGER_IP_V6"
+      FROM "CSM50"."Z36" "Z36"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'CSM50.Z36' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="Z36">
+          <Key>
+            <PropertyRef Name="Z36_REC_KEY" />
+            <PropertyRef Name="Z36_ID" />
+            <PropertyRef Name="Z36_NUMBER" />
+          </Key>
+          <Property Name="Z36_REC_KEY" Type="char" Nullable="false" MaxLength="15" />
+          <Property Name="Z36_ID" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="Z36_NUMBER" Type="char" Nullable="false" MaxLength="9" />
+          <Property Name="Z36_MATERIAL" Type="char" MaxLength="5" />
+          <Property Name="Z36_SUB_LIBRARY" Type="char" MaxLength="5" />
+          <Property Name="Z36_STATUS" Type="char" MaxLength="1" />
+          <Property Name="Z36_LOAN_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_LOAN_HOUR" Type="number" Precision="4" />
+          <Property Name="Z36_EFFECTIVE_DUE_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_DUE_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_DUE_HOUR" Type="number" Precision="4" />
+          <Property Name="Z36_RETURNED_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_RETURNED_HOUR" Type="number" Precision="4" />
+          <Property Name="Z36_ITEM_STATUS" Type="char" MaxLength="2" />
+          <Property Name="Z36_BOR_STATUS" Type="char" MaxLength="2" />
+          <Property Name="Z36_LETTER_NUMBER" Type="number" Precision="2" />
+          <Property Name="Z36_LETTER_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_NO_RENEWAL" Type="number" Precision="1" />
+          <Property Name="Z36_NOTE_1" Type="varchar2" MaxLength="30" />
+          <Property Name="Z36_NOTE_2" Type="varchar2" MaxLength="30" />
+          <Property Name="Z36_LOAN_CATALOGER_NAME" Type="char" MaxLength="10" />
+          <Property Name="Z36_LOAN_CATALOGER_IP" Type="varchar2" MaxLength="20" />
+          <Property Name="Z36_RETURN_CATALOGER_NAME" Type="char" MaxLength="10" />
+          <Property Name="Z36_RETURN_CATALOGER_IP" Type="varchar2" MaxLength="20" />
+          <Property Name="Z36_RENEW_CATALOGER_NAME" Type="char" MaxLength="10" />
+          <Property Name="Z36_RENEW_CATALOGER_IP" Type="varchar2" MaxLength="20" />
+          <Property Name="Z36_RENEW_MODE" Type="char" MaxLength="10" />
+          <Property Name="Z36_BOR_TYPE" Type="char" MaxLength="2" />
+          <Property Name="Z36_NOTE_ALPHA" Type="char" MaxLength="1" />
+          <Property Name="Z36_RECALL_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_RECALL_DUE_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_LAST_RENEW_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_ORIGINAL_DUE_DATE" Type="number" Precision="8" />
+          <Property Name="Z36_PROCESS_STATUS" Type="char" MaxLength="2" />
+          <Property Name="Z36_LOAN_TYPE" Type="char" MaxLength="1" />
+          <Property Name="Z36_PROXY_ID" Type="varchar2" MaxLength="12" />
+          <Property Name="Z36_RECALL_TYPE" Type="char" MaxLength="2" />
+          <Property Name="Z36_RETURN_LOCATION" Type="char" MaxLength="5" />
+          <Property Name="Z36_RETURN_SUB_LOCATION" Type="varchar2" MaxLength="100" />
+          <Property Name="Z36_SOURCE" Type="char" MaxLength="1" />
+          <Property Name="Z36_DELIVERY_TIME" Type="char" MaxLength="4" />
+          <Property Name="Z36_TAIL_TIME" Type="char" MaxLength="4" />
+          <Property Name="Z36_UPD_TIME_STAMP" Type="char" MaxLength="15" />
+          <Property Name="Z36_LOAN_CATALOGER_IP_V6" Type="varchar2" MaxLength="50" />
+          <Property Name="Z36_RETURN_CATALOGER_IP_V6" Type="varchar2" MaxLength="50" />
+          <Property Name="Z36_RENEW_CATALOGER_IP_V6" Type="varchar2" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MesaPartes" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OracleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Z36" EntityType="MesaPartes.Z36" />
+        </EntityContainer>
+        <EntityType Name="Z36">
+          <Key>
+            <PropertyRef Name="Z36_REC_KEY" />
+            <PropertyRef Name="Z36_ID" />
+            <PropertyRef Name="Z36_NUMBER" />
+          </Key>
+          <Property Name="Z36_REC_KEY" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_ID" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_NUMBER" Type="String" Nullable="false" MaxLength="9" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_MATERIAL" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_SUB_LIBRARY" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_STATUS" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_LOAN_DATE" Type="Int32" />
+          <Property Name="Z36_LOAN_HOUR" Type="Int16" />
+          <Property Name="Z36_EFFECTIVE_DUE_DATE" Type="Int32" />
+          <Property Name="Z36_DUE_DATE" Type="Int32" />
+          <Property Name="Z36_DUE_HOUR" Type="Int16" />
+          <Property Name="Z36_RETURNED_DATE" Type="Int32" />
+          <Property Name="Z36_RETURNED_HOUR" Type="Int16" />
+          <Property Name="Z36_ITEM_STATUS" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_BOR_STATUS" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_LETTER_NUMBER" Type="Int16" />
+          <Property Name="Z36_LETTER_DATE" Type="Int32" />
+          <Property Name="Z36_NO_RENEWAL" Type="Int16" />
+          <Property Name="Z36_NOTE_1" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_NOTE_2" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_LOAN_CATALOGER_NAME" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_LOAN_CATALOGER_IP" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RETURN_CATALOGER_NAME" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_RETURN_CATALOGER_IP" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RENEW_CATALOGER_NAME" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_RENEW_CATALOGER_IP" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RENEW_MODE" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_BOR_TYPE" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_NOTE_ALPHA" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_RECALL_DATE" Type="Int32" />
+          <Property Name="Z36_RECALL_DUE_DATE" Type="Int32" />
+          <Property Name="Z36_LAST_RENEW_DATE" Type="Int32" />
+          <Property Name="Z36_ORIGINAL_DUE_DATE" Type="Int32" />
+          <Property Name="Z36_PROCESS_STATUS" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_LOAN_TYPE" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_PROXY_ID" Type="String" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RECALL_TYPE" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_RETURN_LOCATION" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_RETURN_SUB_LOCATION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_SOURCE" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_DELIVERY_TIME" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_TAIL_TIME" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_UPD_TIME_STAMP" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+          <Property Name="Z36_LOAN_CATALOGER_IP_V6" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RETURN_CATALOGER_IP_V6" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Z36_RENEW_CATALOGER_IP_V6" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MesaPartesStoreContainer" CdmEntityContainer="OracleEntities">
+          <EntitySetMapping Name="Z36">
+            <EntityTypeMapping TypeName="MesaPartes.Z36">
+              <MappingFragment StoreEntitySet="Z36">
+                <ScalarProperty Name="Z36_REC_KEY" ColumnName="Z36_REC_KEY" />
+                <ScalarProperty Name="Z36_ID" ColumnName="Z36_ID" />
+                <ScalarProperty Name="Z36_NUMBER" ColumnName="Z36_NUMBER" />
+                <ScalarProperty Name="Z36_MATERIAL" ColumnName="Z36_MATERIAL" />
+                <ScalarProperty Name="Z36_SUB_LIBRARY" ColumnName="Z36_SUB_LIBRARY" />
+                <ScalarProperty Name="Z36_STATUS" ColumnName="Z36_STATUS" />
+                <ScalarProperty Name="Z36_LOAN_DATE" ColumnName="Z36_LOAN_DATE" />
+                <ScalarProperty Name="Z36_LOAN_HOUR" ColumnName="Z36_LOAN_HOUR" />
+                <ScalarProperty Name="Z36_EFFECTIVE_DUE_DATE" ColumnName="Z36_EFFECTIVE_DUE_DATE" />
+                <ScalarProperty Name="Z36_DUE_DATE" ColumnName="Z36_DUE_DATE" />
+                <ScalarProperty Name="Z36_DUE_HOUR" ColumnName="Z36_DUE_HOUR" />
+                <ScalarProperty Name="Z36_RETURNED_DATE" ColumnName="Z36_RETURNED_DATE" />
+                <ScalarProperty Name="Z36_RETURNED_HOUR" ColumnName="Z36_RETURNED_HOUR" />
+                <ScalarProperty Name="Z36_ITEM_STATUS" ColumnName="Z36_ITEM_STATUS" />
+                <ScalarProperty Name="Z36_BOR_STATUS" ColumnName="Z36_BOR_STATUS" />
+                <ScalarProperty Name="Z36_LETTER_NUMBER" ColumnName="Z36_LETTER_NUMBER" />
+                <ScalarProperty Name="Z36_LETTER_DATE" ColumnName="Z36_LETTER_DATE" />
+                <ScalarProperty Name="Z36_NO_RENEWAL" ColumnName="Z36_NO_RENEWAL" />
+                <ScalarProperty Name="Z36_NOTE_1" ColumnName="Z36_NOTE_1" />
+                <ScalarProperty Name="Z36_NOTE_2" ColumnName="Z36_NOTE_2" />
+                <ScalarProperty Name="Z36_LOAN_CATALOGER_NAME" ColumnName="Z36_LOAN_CATALOGER_NAME" />
+                <ScalarProperty Name="Z36_LOAN_CATALOGER_IP" ColumnName="Z36_LOAN_CATALOGER_IP" />
+                <ScalarProperty Name="Z36_RETURN_CATALOGER_NAME" ColumnName="Z36_RETURN_CATALOGER_NAME" />
+                <ScalarProperty Name="Z36_RETURN_CATALOGER_IP" ColumnName="Z36_RETURN_CATALOGER_IP" />
+                <ScalarProperty Name="Z36_RENEW_CATALOGER_NAME" ColumnName="Z36_RENEW_CATALOGER_NAME" />
+                <ScalarProperty Name="Z36_RENEW_CATALOGER_IP" ColumnName="Z36_RENEW_CATALOGER_IP" />
+                <ScalarProperty Name="Z36_RENEW_MODE" ColumnName="Z36_RENEW_MODE" />
+                <ScalarProperty Name="Z36_BOR_TYPE" ColumnName="Z36_BOR_TYPE" />
+                <ScalarProperty Name="Z36_NOTE_ALPHA" ColumnName="Z36_NOTE_ALPHA" />
+                <ScalarProperty Name="Z36_RECALL_DATE" ColumnName="Z36_RECALL_DATE" />
+                <ScalarProperty Name="Z36_RECALL_DUE_DATE" ColumnName="Z36_RECALL_DUE_DATE" />
+                <ScalarProperty Name="Z36_LAST_RENEW_DATE" ColumnName="Z36_LAST_RENEW_DATE" />
+                <ScalarProperty Name="Z36_ORIGINAL_DUE_DATE" ColumnName="Z36_ORIGINAL_DUE_DATE" />
+                <ScalarProperty Name="Z36_PROCESS_STATUS" ColumnName="Z36_PROCESS_STATUS" />
+                <ScalarProperty Name="Z36_LOAN_TYPE" ColumnName="Z36_LOAN_TYPE" />
+                <ScalarProperty Name="Z36_PROXY_ID" ColumnName="Z36_PROXY_ID" />
+                <ScalarProperty Name="Z36_RECALL_TYPE" ColumnName="Z36_RECALL_TYPE" />
+                <ScalarProperty Name="Z36_RETURN_LOCATION" ColumnName="Z36_RETURN_LOCATION" />
+                <ScalarProperty Name="Z36_RETURN_SUB_LOCATION" ColumnName="Z36_RETURN_SUB_LOCATION" />
+                <ScalarProperty Name="Z36_SOURCE" ColumnName="Z36_SOURCE" />
+                <ScalarProperty Name="Z36_DELIVERY_TIME" ColumnName="Z36_DELIVERY_TIME" />
+                <ScalarProperty Name="Z36_TAIL_TIME" ColumnName="Z36_TAIL_TIME" />
+                <ScalarProperty Name="Z36_UPD_TIME_STAMP" ColumnName="Z36_UPD_TIME_STAMP" />
+                <ScalarProperty Name="Z36_LOAN_CATALOGER_IP_V6" ColumnName="Z36_LOAN_CATALOGER_IP_V6" />
+                <ScalarProperty Name="Z36_RETURN_CATALOGER_IP_V6" ColumnName="Z36_RETURN_CATALOGER_IP_V6" />
+                <ScalarProperty Name="Z36_RENEW_CATALOGER_IP_V6" ColumnName="Z36_RENEW_CATALOGER_IP_V6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Oracle" ZoomLevel="38">
+        <EntityTypeShape EntityType="MesaPartes.Z36" Width="1.5" PointX="0.75" PointY="0.75" Height="9.8646451822916656" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
