@@ -1,0 +1,49 @@
+﻿@model MesaPartes.Models.MaestroBiblio
+
+@{
+    ViewBag.Title = "InfoAlumno";
+}
+
+<h2>Informacion del Alumno</h2>
+
+
+    <fieldset>
+        <legend>MaestroBiblio</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        @Html.HiddenFor(model => model.Cod_barras)
+
+        <div class="editor-label" style="padding-top:10px">
+            @Html.LabelFor(model => model.codigo)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.codigo)
+        </div>
+
+        <div class="editor-label" style="padding-top:10px">
+            @Html.Label("Nombres")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.datos)
+        </div>
+
+        <div class="editor-label" style="padding-top:10px">
+            @Html.Label("Programa Profesional")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.programa)
+        </div>
+        <div class="editor-label">
+            @ViewBag.direccion
+        </div>
+    </fieldset>
+
+
+    <div style="padding-top:10px">
+        <input type="submit" value="Regresar a la lista" />
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

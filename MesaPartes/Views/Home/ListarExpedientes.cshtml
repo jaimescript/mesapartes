@@ -33,7 +33,7 @@
                      @Html.ActionLink("Fecha Expedicion", "ListarExpedientes", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
                 <th>
-                    Programa
+                    Anulado
                 </th>
                 <th>            
                     @Html.ActionLink("Nombres", "ListarExpedientes", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -62,11 +62,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Fec_Expedición)
                 </td>
+                @if(item.anular==null)
+                {
                 <td>
-                    @Html.DisplayFor(modelItem => item.CIdPrograma)
+                    NO
                 </td>
+                }
+                else
+                {
                 <td>
-                    @Html.DisplayFor(modelItem => item.cDatos)
+                    SI
+                </td>
+                }
+                <td>
+                    @Html.ActionLink(item.cDatos, "InfoAlumno", new { CodigoAlumno = item.cCodLector })                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.cusuario)
@@ -91,11 +100,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Fec_Expedición)
                 </td>
+                @if(item.anular==null)
+                {
                 <td>
-                    @Html.DisplayFor(modelItem => item.CIdPrograma)
+                    NO
                 </td>
+                }
+                else
+                {
                 <td>
-                    @Html.DisplayFor(modelItem => item.cDatos)
+                    SI
+                </td>
+                }
+                <td>
+                    @Html.ActionLink(item.cDatos, "InfoAlumno", new { CodigoAlumno = item.cCodLector, RedirectUrl = "naa" })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.cusuario)

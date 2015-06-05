@@ -382,6 +382,7 @@
     <Content Include="Views\Home\ListarExpedientes.cshtml" />
     <Content Include="Views\Home\AnularExpediente.cshtml" />
     <Content Include="Views\Home\Ejemplo.cshtml" />
+    <Content Include="Views\Home\InfoAlumno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Gnostice.PDFOne.PDFDocument.licx" />

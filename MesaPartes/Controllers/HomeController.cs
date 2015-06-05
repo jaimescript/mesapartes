@@ -322,19 +322,26 @@ namespace MesaPartes.Controllers
                 var Expedientes = from s in db.Expedientes select s;
 
                 /*
-                 * var Expedientes = from s in db.Expedientes                                  
-                                  join sa in db.MaestroBiblio on s.CIdPrograma equals sa.cod_prog
-                                  select new
-                                  {
-                                      cCodLector = s.cCodLector,
-                                      cSalida = s.cSalida,
-                                      Fec_Expedición = s.Fec_Expedición,
-                                      CIdPrograma = s.CIdPrograma,
-                                      cDatos = s.cDatos,
-                                      cusuario = s.cusuario,
-                                      cIdExpediente = s.cIdExpediente,
-                                      programa = sa.programa
-                                  };
+                var Expedientes = from s in db.Expedientes                                  
+                join sa in db.MaestroBiblio on s.CIdPrograma equals sa.cod_prog
+                select new
+                {
+                    cCodLector = s.cCodLector,
+                    cSalida = s.cSalida,
+                    Fec_Expedición = s.Fec_Expedición,
+                    CIdPrograma = s.CIdPrograma,
+                    cDatos = s.cDatos,
+                    cusuario = s.cusuario,
+                    cIdExpediente = s.cIdExpediente,
+                                      
+                };* 
+                 */
+                /*var Expedientes = from s in db.Expedientes                                  
+                                    join sa in db.MaestroBiblio on s.CIdPrograma equals sa.cod_prog
+                                    select new
+                                    {
+                                        info = s,                                                                         
+                                    };
                  */
 
                 if (!String.IsNullOrEmpty(searchString))
@@ -513,5 +520,18 @@ namespace MesaPartes.Controllers
             }
             return true;
         }
+/********************************* LISTA EXPEDIENTES *******************************************************/
+        [Authorize]
+        public ActionResult InfoAlumno(string CodigoAlumno, string RedirectUrl)
+        {
+            using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
+            {
+                ViewBag.direccion = "direccion: " + RedirectUrl;
+                var v = db.MaestroBiblio.Where(a => a.codigo.Equals(CodigoAlumno)).FirstOrDefault();
+                v.datos = v.datos.Replace("/", " ");
+                return View(v);
+            }
+        }
+/***********************************************************************************************************/
     }
 }
