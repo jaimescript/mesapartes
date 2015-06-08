@@ -522,11 +522,10 @@ namespace MesaPartes.Controllers
         }
 /********************************* LISTA EXPEDIENTES *******************************************************/
         [Authorize]
-        public ActionResult InfoAlumno(string CodigoAlumno, string RedirectUrl)
+        public ActionResult InfoAlumno(string CodigoAlumno)
         {
             using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
             {
-                ViewBag.direccion = "direccion: " + RedirectUrl;
                 var v = db.MaestroBiblio.Where(a => a.codigo.Equals(CodigoAlumno)).FirstOrDefault();
                 v.datos = v.datos.Replace("/", " ");
                 return View(v);
