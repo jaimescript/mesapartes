@@ -131,7 +131,7 @@ namespace MesaPartes.Controllers
                     }
                     else
                     {
-                        //ModelState.AddModelError("cCodLector", "El usuario tiene una deuda de material bibliografico en la biblioteca.");
+                        ModelState.AddModelError("cCodLector", "El usuario tiene una deuda de material bibliografico en la biblioteca.");
                     }                    
                 }
                 else
@@ -305,6 +305,9 @@ namespace MesaPartes.Controllers
         {
             using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
             {
+                ViewBag.Action = "ListarExpedientes";
+                ViewBag.Styles = "new { @style = 'background-color: #c7d1d6;' }";
+
                 ViewBag.CurrentSort = sortOrder;
                 ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
@@ -320,29 +323,6 @@ namespace MesaPartes.Controllers
                 ViewBag.CurrentFilter = searchString;
 
                 var Expedientes = from s in db.Expedientes select s;
-
-                /*
-                var Expedientes = from s in db.Expedientes                                  
-                join sa in db.MaestroBiblio on s.CIdPrograma equals sa.cod_prog
-                select new
-                {
-                    cCodLector = s.cCodLector,
-                    cSalida = s.cSalida,
-                    Fec_Expedición = s.Fec_Expedición,
-                    CIdPrograma = s.CIdPrograma,
-                    cDatos = s.cDatos,
-                    cusuario = s.cusuario,
-                    cIdExpediente = s.cIdExpediente,
-                                      
-                };* 
-                 */
-                /*var Expedientes = from s in db.Expedientes                                  
-                                    join sa in db.MaestroBiblio on s.CIdPrograma equals sa.cod_prog
-                                    select new
-                                    {
-                                        info = s,                                                                         
-                                    };
-                 */
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -367,6 +347,104 @@ namespace MesaPartes.Controllers
                 int pageNumber = (page ?? 1);
                 return View(Expedientes.ToPagedList(pageNumber, pageSize));                
             }            
+        }
+/****************************** LISTAR EXPEDIENTES ANULADOS *************************************************/
+        [Authorize]
+        public ActionResult ListarExpedientesAnulados(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
+            {
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+                ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.CurrentFilter = searchString;
+
+                var Expedientes = db.Expedientes.Where(s => s.anular.Contains("A"));  
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Expedientes = Expedientes.Where(s => s.cDatos.Contains(searchString.Replace(" ", "/")));
+                }
+                switch (sortOrder)
+                {
+                    case "name_desc":
+                        Expedientes = Expedientes.OrderByDescending(s => s.cDatos);
+                        break;
+                    case "Date":
+                        Expedientes = Expedientes.OrderBy(s => s.Fec_Expedición);
+                        break;
+                    case "date_desc":
+                        Expedientes = Expedientes.OrderByDescending(s => s.Fec_Expedición);
+                        break;
+                    default:
+                        Expedientes = Expedientes.OrderBy(s => s.cDatos);
+                        break;
+                }
+                int pageSize = 15;
+                int pageNumber = (page ?? 1);
+                /* 
+                * Utiliza la misma vista de ListarExpedientes porque es lo mismo
+                */
+                return View("ListarExpedientes", Expedientes.ToPagedList(pageNumber, pageSize));
+            }
+        }
+/****************************** LISTAR EXPEDIENTES SIN ANULAR *************************************************/
+        [Authorize]
+        public ActionResult ListarExpedientesSinAnular(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
+            {
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+                ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.CurrentFilter = searchString;
+
+                var Expedientes = db.Expedientes.Where(s => s.anular == null);
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Expedientes = Expedientes.Where(s => s.cDatos.Contains(searchString.Replace(" ", "/")));
+                }
+                switch (sortOrder)
+                {
+                    case "name_desc":
+                        Expedientes = Expedientes.OrderByDescending(s => s.cDatos);
+                        break;
+                    case "Date":
+                        Expedientes = Expedientes.OrderBy(s => s.Fec_Expedición);
+                        break;
+                    case "date_desc":
+                        Expedientes = Expedientes.OrderByDescending(s => s.Fec_Expedición);
+                        break;
+                    default:
+                        Expedientes = Expedientes.OrderBy(s => s.cDatos);
+                        break;
+                }
+                int pageSize = 15;
+                int pageNumber = (page ?? 1);
+                /* 
+                * Utiliza la misma vista de ListarExpedientes porque es lo mismo
+                */
+                return View("ListarExpedientes", Expedientes.ToPagedList(pageNumber, pageSize));
+            }
         }
 /****************************** ANULAR EXPEDIENTE *************************************************/
         [Authorize]        
@@ -435,7 +513,7 @@ namespace MesaPartes.Controllers
             }
             return true;
         }
-/*******************************  ACTUALIZAR ESTADO ALUMNO ANULAR *****************************************/
+/*******************************  ACTUALIZAR ESTADO ALUMNO ANULAR ***********************************/
         public bool ActualizarEstadoAlumnoAnular(string cod)
         {
             using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
@@ -502,7 +580,7 @@ namespace MesaPartes.Controllers
                 nuevo_a.Control = "X";
                 nuevo_a.Anular = "X";
                 nuevo_a.Observacion = "nada";
-                nuevo_a.cusuario = User.Identity.Name;
+                nuevo_a.cusuario = User.Identity.Name.ToString();
 
                 db.AuditoriaConstancias.AddObject(nuevo_a);
                 db.SaveChanges();
@@ -520,7 +598,7 @@ namespace MesaPartes.Controllers
             }
             return true;
         }
-/********************************* LISTA EXPEDIENTES *******************************************************/
+/********************************* INFORMACION DEL ALUMNO **************************************************/
         [Authorize]
         public ActionResult InfoAlumno(string CodigoAlumno)
         {
@@ -532,5 +610,17 @@ namespace MesaPartes.Controllers
             }
         }
 /***********************************************************************************************************/
+/********************************* INFORMACION DEL ALUMNO **************************************************/
+        [Authorize]
+        public ActionResult InfoAlumno2(string CodigoAlumno)
+        {
+            using (BIBLIO_UCSMEntities db = new BIBLIO_UCSMEntities())
+            {
+                var v = db.MaestroBiblio.Where(a => a.codigo.Equals(CodigoAlumno)).FirstOrDefault();
+                v.datos = v.datos.Replace("/", " ");
+                return View(v);
+            }
+        }
+        /***********************************************************************************************************/
     }
 }
